@@ -1,0 +1,74 @@
+.invest {
+
+    &__container {
+        display: flex;
+        gap: 50px;
+    }
+
+    &__img-wrapper {
+        width: 50%;
+    }
+
+    &__content {
+        width: 50%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__description {
+
+    }
+
+    &__text {
+        margin-top: 45px;
+    }
+
+    &__form {
+        display: flex;
+        align-items: center;
+        margin-top: 45px;
+        gap: 30px
+    }
+
+    &__form-input {
+
+    }
+
+    &__form-button {
+        width: 150px;
+    }
+}
+@include media($tablet) {
+    .invest {
+
+        &__container {
+            gap: 25px;
+        }
+
+    }
+}
+
+@include media($mobile-custom) {
+    .invest {
+
+        &__container {
+            flex-direction: column-reverse;
+        }
+        &__img-wrapper {
+            width: 100%;
+            height: 320px;
+        }
+        &__content {
+            width: 100%;
+            padding: 0;
+        }
+        &__text {
+            margin-top: 30px;
+        }
+        &__form {
+            margin-top: 30px;
+            gap: 10px;
+        }
+    }
+}

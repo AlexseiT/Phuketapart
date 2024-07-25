@@ -18,12 +18,14 @@
 @import 'config/common';
 
 /** Подключение стилей отдельных блоков и секций */
-@import 'components/ExHeader';
-@import 'components/ExBurger';
-@import 'components/ExBurger-menu';
-@import 'components/ExFooter';
-@import 'components/ExCentered-gallery';
-@import 'components/ExGallery';
-@import 'components/ExAccordion';
-@import 'components/ExCookie';
-@import 'components/ExPopups';
+@import 'components/header';
+@import 'components/hero';
+@import 'components/marquee';
+@import 'components/catalog';
+@import 'components/why';
+@import 'components/invest';
+@import 'components/course-block';
+@import 'components/arenda';
+@import 'components/footer';
+@import 'components/video';
+@import 'components/map-block';

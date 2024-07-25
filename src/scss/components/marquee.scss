@@ -1,0 +1,41 @@
+.marquee {
+    &__container {
+        /*overflow: hidden;*/
+    }
+
+    &__slider {
+        white-space: nowrap;
+        will-change: transform;
+        animation: marquee 20s linear infinite;
+        display: flex;
+        gap: 70px;
+        justify-content: space-around;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__item-title {
+        color: var(--black);
+    }
+
+    &__item-description {
+        color: var(--black);
+    }
+}
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+@include media($mobile-custom) {
+    .marquee__slider{
+        gap: 40px;
+        animation: marquee 8s linear infinite;
+    }
+
+}

@@ -1,7 +1,7 @@
 const isMobile = document.documentElement.clientWidth <= 640;
 const isTablet = document.documentElement.clientWidth <= 1200;
-const isLaptop = document.documentElement.clientWidth <= 1440;
-const isDesktop = document.documentElement.clientWidth > 1440;
+const isLaptop = document.documentElement.clientWidth <= 1400;
+const isDesktop = document.documentElement.clientWidth > 1400;
 
 function isWebp() {
     // Проверка поддержки webp
@@ -206,13 +206,17 @@ async function EnableSubmitOnCheckbox(){
 }
 
 function InitBurgerMenu() {
-    const burgerNode = document.querySelector('.header__burger-btn');
-    if (burgerNode) {
-        UIkit.modal(document.querySelector('.header__burger-menu'));
-        burgerNode.addEventListener('click', (event) => {
-            burgerNode.classList.toggle('header__burger-btn_active');
-        });
-    }
+
+    let burger_buttons = document.querySelectorAll(".header__burger");
+    let burger_menu = document.getElementById("burger-menu");
+    burger_buttons.forEach(burger_button => {
+        if (burger_button && burger_menu){
+            burger_button.addEventListener('click', (event) => {
+                burger_button.classList.toggle("header__burger_active");
+                burger_menu.classList.toggle("header__burger-menu_active");
+            });
+        }
+    });
 }
 
 function InitCityPopup() {
@@ -292,11 +296,31 @@ async function InitLoadMorePosts() {
         });
     }
 }
-
+function InitMapContacts(){
+    let map_object = document.getElementById("map-block-map");
+    if (map_object){
+        let start_lat = 7.783967;
+        let start_lon = 98.326034;
+        let map = new ymaps.Map(map_object, {
+            center: [start_lat, start_lon],
+            zoom: 14,
+            controls: []
+        });
+        let placemark = new ymaps.Placemark(
+            [start_lat,start_lon],{
+                },
+            {
+            iconLayout: 'default#image',
+            iconImageHref: '/images/point.png',
+            }
+        );
+        map.geoObjects.add(placemark);
+    }
+}
 document.addEventListener('DOMContentLoaded', (event) => {
     // ASYNC
     InitCenteredSliders();      // Преключение класса центрального слайда при свайпах
-    CallbackFormInit();         // Инцициализация всех форм (Маска тел. + ajax на submit)
+    //CallbackFormInit();         // Инцициализация всех форм (Маска тел. + ajax на submit)
     EnableSubmitOnCheckbox();   // Активация submit только после согласия с политикой
     // InitLoadMorePosts();        // Инит кнопки "Загрузить еще" для постов, см. WP ExBlog.php, functions.php
     // END ASYNC
@@ -306,10 +330,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // InsertPostContents();    // Содержание статьи по заголовкам
     // LoadMapOnScroll();       // Прогрузка карты при скролле
-
-    if(isTablet) {
-        InitBurgerMenu();
-    }
+    setTimeout(() => {
+        InitMapContacts();
+    }, 1000);
+    InitBurgerMenu();
 
     // Наложение партикла
     // particlesJS.load('particles-slider', 'static/ParticlesJSON/GreenHexagons.json');

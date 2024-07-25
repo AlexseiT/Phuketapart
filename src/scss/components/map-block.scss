@@ -1,0 +1,111 @@
+.map-block {
+
+    &__container {
+    }
+
+    &__map {
+        position: relative;
+        margin-top: 30px;
+        display: block;
+        background-color: var(--over-light);
+    }
+
+    &__content {
+        position: absolute;
+        top: 0px;
+        background-color: white;
+        height: 100%;
+        top: 14px;
+        left: 14px;
+        width: 350px;
+        height: 400px;
+        padding: 34px 27px;
+    }
+
+    &__content-title {
+        color: var(--gray);
+        font-weight: 600;
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 15px;
+        margin-bottom: 35px;
+        a{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--black);
+            &:hover{
+                color: var(--pink);
+                .map-block__ico path{
+                    fill: var(--pink);
+                }
+            }
+        }
+    }
+
+    &__ico-wrapper {
+        width: 19px;
+        height: 19px;
+    }
+
+    &__ico {
+        path{
+            fill: var(--gray);
+        }
+    }
+
+    &__socials {
+        display: flex;
+        gap: 20px;
+    }
+
+    &__social {
+        width: 60px;
+        height: 60px;
+        transition: .4s;
+        &:hover{
+            opacity: .5;
+        }
+    }
+}
+
+@include media($mobile) {
+    .map-block {
+
+        &__map {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 10px;
+            margin-top: 0px;
+        }
+    
+        &__content {
+            position: static;
+            height: 100%;
+            width: 100%;
+            height: fit-content;
+            padding: 30px 25px;
+            box-shadow: 0px 0px 18.52px 0px #0000001A;
+        }
+        &__contacts {
+            margin-bottom: 25px;
+        }
+        &__socials {
+            gap: 18px;
+        }
+        &__social {
+            width: 40px;
+            height: 40px;
+        }
+        &__map-object{
+            height: 266px !important;
+            .ymaps-2-1-79-map{
+                height: 266px !important;
+            }
+        }
+    }
+}

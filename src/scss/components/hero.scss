@@ -1,0 +1,157 @@
+.hero {
+
+    &__container {
+    }
+
+    &__title-block {
+    }
+
+    &__title {
+    }
+
+    &__description {
+        color: var(--gray);
+    }
+
+    &__content-block {
+        margin-top: 40px;
+        display: flex;
+        gap: 50px;
+    }
+
+    &__images-list {
+        width: 766px;
+        height: 550px;
+    }
+
+    &__slider {
+        position: relative;
+    }
+
+    &__slide {
+
+    }
+
+    &__dot {
+        top: 0;
+        left: 30px;
+        position: absolute;
+    }
+    &__dot > * > *{
+        background-color: transparent;
+        border: 2px solid var(--white);
+        opacity: 1;
+        width: 13px;
+        height: 13px;
+    }
+    &__dot > .uk-active > *{
+        background-color: var(--pink);
+        transform: scale(1);
+        border: 2px solid var(--pink);
+    }
+    &__dot > * >:hover{
+        background-color: var(--white);
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__content-title {
+        font-weight: 600;
+    }
+
+    &__content-description {
+        margin-top: 20px;
+        color: var(--gray);
+    }
+
+    &__form {
+        margin-top: 45px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 35px 45px;
+        width: 100%;
+        border: 1px solid var(--light);
+    }
+
+    &__form-title {
+        font-weight: 600;
+    }
+
+    &__form-description {
+        margin-top: 20px;
+    }
+
+    &__form-input {
+        margin-top: 35px;
+    }
+    &__form-button{
+        margin-top: 35px;
+        width: 100%;
+    }
+}
+@include media($tablet) {
+    .hero {
+        &__images-list {
+            width: 500px;
+            height: 427px;
+        }
+        &__form-description {
+            margin-top: 15px;
+        }
+    
+        &__form-input {
+            margin-top: 25px;
+        }
+        &__form-button{
+            margin-top: 25px;
+        }
+        &__form {
+            margin-top: 25px;
+        }
+        &__slide {
+            height: 427px;
+        }
+    }
+}
+
+@include media($mobile-custom) {
+    .hero {
+        &__content-block{
+            flex-direction: column;
+        }
+        &__images-list{
+            width: 100%;
+        }
+        &__content-title{
+            text-align: center;
+        }
+        &__content-description{
+            text-align: center;
+        }
+        &__form-description{
+            text-align: center;
+        }
+        &__title {
+            font-size: 32px;
+        }
+    }
+}
+
+@include media($mobile) {
+    .hero {
+        &__slide{
+            height: 325px;
+        }
+        &__images-list{
+            height: 325px;
+        }
+        &__title {
+            font-size: 24px;
+        }
+    
+    }
+}

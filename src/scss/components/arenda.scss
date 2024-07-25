@@ -1,0 +1,136 @@
+.arenda {
+
+    &__container {
+    }
+    &__content{
+        position: relative;
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        overflow: hidden;
+    }
+    &__img-wrapper {
+        position: absolute;
+        top: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__title-block {
+        width: 50%;
+        position: relative;
+        z-index: 1;
+        padding: 70px 0 70px 100px;
+    }
+
+    &__logo-wrapper {
+        display: flex;
+        width: 138px;
+        height: 60px;
+        &:hover{
+            opacity: .5;
+        }
+    }
+
+    &__title {
+        color: var(--white)
+    }
+
+    &__content-block {
+        width: 50%;
+        position: relative;
+        z-index: 1;
+        padding: 70px 100px 70px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    &__list {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        li{
+            display: flex;
+            gap: 25px;
+            color: var(--white)
+        }
+    }
+
+    &__ico-wrapper {
+        height: 18px;
+        width: 18px;
+    }
+    &__button
+    {
+        width: 70%;
+    }
+}
+
+@include media($tablet) {
+    .arenda {
+
+
+        &__title-block {
+
+            padding: 50px 0 50px 80px;
+        }
+
+        &__content-block {
+            padding: 50px 80px 50px 0;
+            gap: 30px;
+        }
+    
+
+    }
+}
+
+@include media($mobile-custom) {
+    .arenda {
+
+        &__content {
+            flex-direction: column;
+        }
+    
+        &__img-wrapper {
+
+        }
+    
+        &__title-block {
+            padding: 34px 34px 0 34px;
+            width: 100%;
+        }
+    
+        &__logo-wrapper {
+
+        }
+    
+        &__title {
+     
+        }
+    
+        &__content-block {
+            padding: 0 34px 34px 34px;
+            width: 100%;
+        }
+    
+        &__list {
+ 
+            li{
+
+            }
+        }
+    
+        &__ico-wrapper {
+
+        }
+        &__button
+        {
+            width: 100%;
+        }
+    }
+}
